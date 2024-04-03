@@ -4,6 +4,7 @@ import "dotenv/config";
 import mongoose from "mongoose";
 import myUserRoute from "./routes/myUserRoute";
 import { v2 as cloudinary } from "cloudinary"; 
+import myRestaurantRoute from "./routes/MyRestaurantRoute";
 
 
 mongoose
@@ -24,6 +25,7 @@ app.get("/health", async (req: Request, res: Response)=>{
     res.send({ message: "health OK! "});
 });
 app.use("/api/my/user",myUserRoute);
+app.use("/api/my/restaurant", myRestaurantRoute);
 
 app.listen(8080,()=>{
     console.log("Server is running on port 8080");
